@@ -371,7 +371,8 @@ export default class GridItem extends React.Component {
         useCSSTransforms ? 'cssTransforms' : ''
       ].join(' '),
       // We can set the width and height on the child, but unfortunately we can't set the position.
-      style: {...this.props.style, ...child.props.style, ...this.createStyle(pos)}
+      style: {...this.props.style, ...child.props.style, ...this.createStyle(pos)},
+      layout: pos
     });
 
     // Resizable support. This is usually on but the user can toggle it off.

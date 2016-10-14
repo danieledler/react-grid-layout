@@ -40,7 +40,8 @@ build-example:
 # Copy original source as `.js.flow` for use with flow
 copy-flow:
 	# Create tmpdir & copy
-	$(eval TMP := $(shell mktemp -d))
+	# $(eval TMP := $(shell mktemp -d))
+	$(eval TMP := $(shell mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir'))
 	cp -R $(LIB)/ $(TMP)
 	# Rename extensions
 	find $(TMP) -type f -name '*.js*' -exec sh -c 'mv -f "$$0" "$${0%.*}.js.flow"' {} \;
